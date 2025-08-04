@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OMS.EmailProvider\OMS.EmailProvider.csproj" />
+    <ProjectReference Include="..\OMS.Infrastructure\OMS.Infrastructure.csproj" />
+    <ProjectReference Include="..\OMS.MapsApi\OMS.MapsApi.csproj" />
+    <ProjectReference Include="..\OMS.PaymentProcessor\OMS.PaymentProcessor.csproj" />
+    <ProjectReference Include="..\OMS.Persistence\OMS.Persistence.csproj" />
+    <ProjectReference Include="..\OMS.SmsProvider\OMS.SmsProvider.csproj" />
+    <ProjectReference Include="..\ORM.IdentityProvider\OMS.IdentityProvider.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="MediatR" Version="12.4.1" />
+  </ItemGroup>
+
+</Project>
