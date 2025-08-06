@@ -10,11 +10,11 @@ public sealed class Address : ValueObject
                                                       string region,
                                                       string postalCode)
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 
     protected override IEnumerable<object> GetEqualityComponents()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 }
