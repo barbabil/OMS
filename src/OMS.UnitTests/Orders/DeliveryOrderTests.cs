@@ -25,6 +25,7 @@ public class DeliveryOrderTests
         var mobilePhoneNumber = MobilePhoneNumber.Instantiate("+306979999999").Value;
         var notes = Notes.Instantiate("Please deliver after 5 PM").Value;
         var primaryAddres = Address.Instantiate("Solonos", "66A", "Athens", "Center", "11527").Value;
+
         var customer = Customer.Instantiate(firstName, lastName, primaryAddres, mobilePhoneNumber, email).Value;
 
         var deliveryOrderResult = DeliveryOrder.Instantiate(items, customer, notes);
