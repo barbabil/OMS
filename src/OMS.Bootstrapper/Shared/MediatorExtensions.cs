@@ -3,7 +3,11 @@ using MediatR;
 using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 using OMS.Application.Orders.Commands.PlaceOrder;
+using OMS.Application.Shared.Commands.Interfaces;
+using OMS.Application.Shared.Queries.Interfaces;
 using OMS.Application.Shared.Validations;
+using OMS.Infrastructure.Shared.Commands;
+using OMS.Infrastructure.Shared.Queries.Queries;
 
 namespace OMS.Bootstrapper.Shared;
 
@@ -25,6 +29,9 @@ public static class MediatorExtensions
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommandValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPostProcessorBehavior<,>));
+
+        services.AddTransient<ICommandExecutor, CommandExecutor>();
+        services.AddTransient<IQueryExecutor, QueryExecutor>();
 
         return services;
     }

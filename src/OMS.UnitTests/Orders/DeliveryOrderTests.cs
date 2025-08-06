@@ -8,26 +8,26 @@ namespace OMS.UnitTests.Orders;
 
 public class DeliveryOrderTests
 {
-    private readonly Email _email = Email.Instantiate("george@outlook.com").Value;
-    private readonly FirstName _firstName = FirstName.Instantiate("George").Value;
-    private readonly LastName _lastName = LastName.Instantiate("Papadopoulos").Value;
-    private readonly MenuItem _menuItem = MenuItem.Instantiate("Pizza", "Delicious pizza", 12.99m, true).Value;
-    private readonly MobilePhoneNumber _mobilePhoneNumber = MobilePhoneNumber.Instantiate("+306979999999").Value;
-    private readonly Notes? _notes = Notes.Instantiate("Please deliver after 5 PM").Value;
-    private readonly Address _primaryAddres = Address.Instantiate("Solonos", "66A", "Athens", "Center", "11527").Value;
-
     [Fact]
     public void Place_ValidInputPassed_ShouldSetCorrectTransition()
     {
+        var menuItem = MenuItem.Instantiate("Pizza", "Delicious pizza", 12.99m, true).Value;
+
         // Arrange
         var items = new List<OrderItem>
         {
-            OrderItem.Instantiate(_menuItem, 2).Value
+            OrderItem.Instantiate(menuItem, 2).Value
         };
 
-        var customer = Customer.Instantiate(_firstName, _lastName, _primaryAddres, _mobilePhoneNumber, _email).Value;
+        var email = Email.Instantiate("george@outlook.com").Value;
+        var firstName = FirstName.Instantiate("George").Value;
+        var lastName = LastName.Instantiate("Papadopoulos").Value;
+        var mobilePhoneNumber = MobilePhoneNumber.Instantiate("+306979999999").Value;
+        var notes = Notes.Instantiate("Please deliver after 5 PM").Value;
+        var primaryAddres = Address.Instantiate("Solonos", "66A", "Athens", "Center", "11527").Value;
+        var customer = Customer.Instantiate(firstName, lastName, primaryAddres, mobilePhoneNumber, email).Value;
 
-        var deliveryOrderResult = DeliveryOrder.Instantiate(items, customer, _notes);
+        var deliveryOrderResult = DeliveryOrder.Instantiate(items, customer, notes);
 
         deliveryOrderResult.Should().Be(deliveryOrderResult.IsSuccess);
 
